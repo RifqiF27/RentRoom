@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rent Room" />
+    <meta name="author" content="Rifqi Fadluloh" />
+    <link href="./image/logo.png" type="image/x-icon" rel="shortcut icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0"
+      rel="stylesheet"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Rent Room - Admin Panel</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <style>
+      .nav-link.active {
+        font-weight: bold;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header
+      class="navbar sticky-top bg-white flex-md-nowrap p-0 shadow"
+      id="navbar"
+    >
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
+        <img
+          src="./image/logo.png"
+          width="30"
+          class="d-inline-block me-2"
+          alt="logo"
+        />Admin Panel</a
+      >
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebar-menu"
+        aria-controls="sidebar-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </header>
+    <!-- End Navbar -->
+
+    <!-- Login Section -->
+    <section class="container" id="login-section" style="display: none">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="mb-3 mt-5">Login Options</h1>
+          <span
+            >Log in and autocomplete your order with your personal data, or sign
+            up to enjoy all the benefits of an IDEA account.</span
+          >
+        </div>
+        <div class="col-12 col-lg-8 offset-lg-2 my-5">
+          <div class="row">
+            <div class="col-12 col-md-6 border-end p-5 text-left">
+              <div class="form-signin m-auto">
+                <form id="register-form">
+                  <h1 class="h3 mb-3 display-1">Sign up and enjoy</h1>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                      <label for="register-username">Username</label>
+                      <label class="text-danger text-end fw-bold">*</label>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="register-username"
+                      placeholder="Enter your username ..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                      <label for="register-email">Email</label>
+                      <label class="text-danger text-end fw-bold">*</label>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="register-email"
+                      placeholder="Enter email address ..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                      <label for="register-password">Password</label>
+                      <label class="text-danger text-end fw-bold">*</label>
+                    </div>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="register-password"
+                      placeholder="Enter your password ..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="register-phone">Phone Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="register-phone"
+                      placeholder="Enter phone number (optional) ..."
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="register-address">Address</label>
+                    <textarea
+                      id="register-address"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Enter your address (optional) ..."
+                      autocomplete="off"
+                    ></textarea>
+                  </div>
+                  <button
+                    class="btn btn-lg btn-primary rounded-pill w-100 p-2 mt-3"
+                    type="submit"
+                  >
+                    Sign Up
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 p-5 text-left">
+              <div class="form-signin m-auto">
+                <form id="login-form">
+                  <h1 class="h3 mb-3 display-1">Log in to your account</h1>
+                  <span
+                    >Log in on your profile to autocomplete your purchase order
+                    with your personal data.</span
+                  >
+                  <div class="mb-3 mt-3">
+                    <div class="d-flex justify-content-between">
+                      <label for="login-email">Email</label>
+                      <label class="text-danger text-end fw-bold">*</label>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="login-email"
+                      placeholder="Enter email address ..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <div class="d-flex justify-content-between">
+                      <label for="login-password">Password</label>
+                      <label class="text-danger text-end fw-bold">*</label>
+                    </div>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="login-password"
+                      placeholder="Enter your password ..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="checkbox mb-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="login-remember"
+                      />
+                      <label class="form-check-label" for="login-remember">
+                        Remember me
+                      </label>
+                    </div>
+                    <button
+                      class="btn btn-lg btn-primary rounded-pill w-100 p-2"
+                      type="submit"
+                    >
+                      Log In
+                    </button>
+                  </div>
+
+                  <div id="buttonDiv"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Login Section -->
+
+    <!-- Home Section -->
+    <section class="container-fluid" id="home-section" style="display: none">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav
+          class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+          id="sidebar-menu"
+          style="display: none"
+        >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="" id="nav-dashboard">
+                  <span class="icon material-symbols-outlined me-2"
+                    >shopping_cart</span
+                  >Dashboard</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" id="nav-product">
+                  <span class="icon material-symbols-outlined me-2"
+                    >shopping_bag</span
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" id="nav-category">
+                  <span class="icon material-symbols-outlined me-2"
+                    >category</span
+                  >Categories</a
+                >
+              </li>
+            </ul>
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase"
+            >
+              <span>Account</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link">
+                  <span class="icon material-symbols-outlined me-2">person</span
+                  >Hei, <span id="username">Rifqi!</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" id="nav-logout">
+                  <span class="icon material-symbols-outlined me-2">logout</span
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- End Sidebar -->
+
+        <!-- Dashboard Section -->
+        <section
+          class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          id="dashboard-section"
+        >
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="display-2">Dashboard</h1>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="row">
+                <div class="col-12 col-xl-5 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Total Products
+                      </h6>
+                      <h6 class="card-title card-number" id="total-product">
+                        0
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-xl-5 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Total Categories
+                      </h6>
+                      <h6 class="card-title card-number" id="total-category">
+                        0
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Dashboard Section -->
+
+        <!-- Product Section -->
+        <section
+          class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          id="product-section"
+          style="display: none"
+        >
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="display-2">Products</h1>
+            <button class="btn btn-primary rounded-pill" id="new-product">
+              <span class="icon material-symbols-outlined">add</span>New Product
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-12 table-responsive">
+              <table class="table align-middle">
+                <thead class="text-center">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" width="180px">Image</th>
+                    <th scope="col" width="250px">Facility</th>
+                    <th scope="col">Room</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Author</th>
+                    <th scope="col" width="50px"></th>
+                  </tr>
+                </thead>
+                <tbody id="table-product"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- End Product Section -->
+
+        <!-- New Product Section -->
+        <section
+          class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          id="new-product-section"
+          style="display: none"
+        >
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="display-2">New Product</h1>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <form id="product-form">
+                <div class="mb-3">
+                  <label for="product-name"
+                    >Name <span class="text-danger fw-bold">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="product-name"
+                    placeholder="Enter product name"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="product-category"
+                    >Category <span class="text-danger fw-bold">*</span></label
+                  >
+                  <select
+                    id="product-category"
+                    class="form-select"
+                    required
+                  ></select>
+                </div>
+                <div class="mb-3">
+                  <label for="product-facility"
+                    >Facility
+                    <span class="text-danger fw-bold">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="product-facility"
+                    placeholder="Enter product description"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="product-roomCapacity"
+                        >Room Capacity <span class="text-danger fw-bold">*</span></label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        class="form-control"
+                        id="product-roomCapacity"
+                        placeholder="Enter product stock"
+                        autocomplete="off"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="product-price"
+                        >Price <span class="text-danger fw-bold">*</span></label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        class="form-control"
+                        id="product-price"
+                        placeholder="Enter product price"
+                        autocomplete="off"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="product-image"
+                    >Image <span class="text-danger fw-bold">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="product-image"
+                    placeholder="Enter product image url"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                
+                <div class="mb-3">
+                  <label for="product-location"
+                    >Location <span class="text-danger fw-bold">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="product-location"
+                    placeholder="Enter product location"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <div class="row mt-5 mb-3">
+                  <div class="col-6">
+                    <a
+                      class="btn btn-lg btn-light rounded-pill w-100 p-2"
+                      href=""
+                      >Cancel</a
+                    >
+                  </div>
+                  <div class="col-6">
+                    <button
+                      class="btn btn-lg btn-primary rounded-pill w-100 p-2"
+                      type="submit"
+                      href=""
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <!-- End New Product Section -->
+
+        <!-- Category Section -->
+        <section
+          class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          id="category-section"
+          style="display: none"
+        >
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="display-2">Categories</h1>
+            <button class="btn btn-primary rounded-pill" id="new-category">
+              <span class="icon material-symbols-outlined">add</span>New
+              Category
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <table class="table w-50">
+                <thead class="text-center">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" width="50px"></th>
+                  </tr>
+                </thead>
+                <tbody id="table-category"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- End Category Section -->
+
+        <!-- New Category Section -->
+        <section
+          class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          id="new-category-section"
+          style="display: none"
+        >
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="display-2">New Category</h1>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <form id="category-form">
+                <div class="mb-3">
+                  <label for="category-name"
+                    >Name <span class="text-danger fw-bold">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="category-name"
+                    placeholder="Enter category name"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <div class="row mt-5 mb-3">
+                  <div class="col-6">
+                    <a
+                      class="btn btn-lg btn-light rounded-pill w-100 p-2"
+                      href=""
+                      >Cancel</a
+                    >
+                  </div>
+                  <div class="col-6">
+                    <button
+                      class="btn btn-lg btn-primary rounded-pill w-100 p-2"
+                      type="submit"
+                      href=""
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <!-- End New Category Section -->
+      </div>
+    </section>
+    <!-- End Home Section -->
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Menangkap semua elemen dengan kelas "nav-link"
+        var navLinks = document.querySelectorAll(".nav-link");
+
+        // Menambahkan pendengar acara klik ke setiap elemen navigasi
+        navLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            // Menghentikan perilaku bawaan tautan untuk mencegah pemrosesan URL
+            event.preventDefault();
+
+            // Menghapus kelas "active" dari semua elemen navigasi
+            navLinks.forEach(function (navLink) {
+              navLink.classList.remove("active");
+            });
+
+            // Menambahkan kelas "active" ke elemen navigasi yang diklik
+            link.classList.add("active");
+          });
+        });
+      });
+    </script>
+
+    <script>
+      const BASE_URL = "http://localhost:3000";
+
+      $(document).ready(() => {
+        initGSI();
+        if (localStorage.getItem("access_token")) {
+          $("#home-section").show();
+          $("#dashboard-section").show();
+          fetchLodgings();
+          fetchCategories();
+        } else {
+          $("#login-section").show();
+        }
+
+        if (localStorage.getItem("username")) {
+          $("#username").text(localStorage.getItem("username"));
+        }
+
+        //Login
+        $("#login-form").submit((event) => {
+          event.preventDefault();
+          const email = $("#login-email").val();
+          const password = $("#login-password").val();
+          $("#login-email").val("");
+          $("#login-password").val("");
+          $.ajax({
+            method: "POST",
+            url: `${BASE_URL}/login`,
+            data: {
+              email,
+              password,
+            },
+          })
+            .done((response) => {
+              localStorage.setItem("access_token", response.access_token);
+              localStorage.setItem("email", email);
+              const username = email.split("@");
+              localStorage.setItem("username", username[0]);
+              $("#username").text(localStorage.getItem("username"));
+              $("#login-section").hide();
+              $("#home-section").show();
+              hidden();
+              $("#dashboard-section").show();
+              fetchLodgings();
+              fetchCategories();
+              showToast(`Welcome ${username[0]}`);
+            })
+            .fail((err) => {
+              console.log(err);
+              showToast(err.responseJSON.message);
+            });
+        });
+
+        //Register
+        $("#register-form").submit((event) => {
+          event.preventDefault();
+          const username = $("#register-username").val();
+          const email = $("#register-email").val();
+          const password = $("#register-password").val();
+          const phoneNumber = $("#register-phone").val();
+          const address = $("#register-address").val();
+          $.ajax({
+            method: "POST",
+            url: `${BASE_URL}/register`,
+            data: {
+              username,
+              email,
+              password,
+              phoneNumber,
+              address,
+            },
+          })
+
+            .done((response) => {
+              localStorage.setItem("access_token", response.access_token);
+              localStorage.setItem("email", email);
+              const username = email.split("@");
+              localStorage.setItem("username", username[0]);
+              $("#username").text(localStorage.getItem("username"));
+              $("#login-section").hide();
+              $("#home-section").show();
+              $("#dashboard-section").show();
+              fetchLodgings();
+              fetchCategories();
+              showToast(`Welcome ${username[0]}`);
+            })
+            .fail((err) => {
+              console.log(err);
+              showToast(err.responseJSON.message);
+            });
+        });
+
+        //Logout
+        $("#nav-logout").click((event) => {
+          event.preventDefault();
+          localStorage.clear();
+          $("#home-section").hide();
+          $("#login-section").show();
+          $("#login-email").val("");
+          $("#login-password").val("");
+          $("#register-username").val("");
+          $("#register-email").val("");
+          $("#register-password").val("");
+          $("#register-phone").val("");
+          $("#register-address").val("");
+        });
+
+        //Google Login
+        function initGSI() {
+          google.accounts.id.initialize({
+            client_id:
+              "357224285745-1cmr5gcdhaugs7kt4rj9241743gacr2c.apps.googleusercontent.com",
+            callback: handleCredentialResponse,
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" } // customization attributes
+          );
+          // google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+        async function handleCredentialResponse(response) {
+          try {
+            console.log("Encoded JWT ID token: " + response.credential);
+            const data = await $.ajax({
+              method: "POST",
+              url: `${BASE_URL}/google-sign-in`,
+              headers: { google_token: response.credential },
+            });
+            localStorage.setItem("access_token", data.access_token);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("username", data.username);
+            $("#username").text(localStorage.getItem("username"));
+            $("#login-section").hide();
+            $("#home-section").show();
+            hidden();
+            $("#dashboard-section").show();
+            fetchLodgings();
+            fetchCategories();
+            showToast(`Welcome ${data.username}`);
+          } catch (err) {
+            console.log(err);
+            showToast(err.responseJSON.message);
+          }
+        }
+
+        //Dashboard
+        $("#nav-dashboard").click((event) => {
+          event.preventDefault();
+          hidden();
+          $("#dashboard-section").show();
+        });
+
+        //Show Lodgings
+        $("#nav-product").click((event) => {
+          event.preventDefault();
+          hidden();
+          $("#product-section").show();
+          fetchLodgings();
+        });
+
+        //Add Lodging
+        $("#product-form").submit((event) => {
+          event.preventDefault();
+          const name = $("#product-name").val();
+          const typeId = $("#product-category").val();
+          const facility = $("#product-facility").val();
+          const price = $("#product-price").val();
+          const imageUrl = $("#product-image").val();
+          const roomCapacity = $("#product-roomCapacity").val();
+          const location = $("#product-location").val();
+          // console.log(facility);
+          $.ajax({
+            method: "POST",
+            url: `${BASE_URL}/lodgings`,
+            data: {
+              name,
+              typeId,
+              facility,
+              price,
+              imageUrl,
+              roomCapacity,
+              location,
+            },
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          })
+
+            .done((response) => {
+              $("#username").text(localStorage.getItem("username"));
+              $("#login-section").hide();
+              $("#home-section").show();
+              hidden();
+              $("#product-section").show();
+              fetchLodgings();
+              fetchCategories();
+              showToast("Add Success");
+            })
+            .fail((err) => {
+              console.log(err);
+            });
+        });
+        //Add Category
+        $("#category-form").submit((event) => {
+          event.preventDefault();
+          const name = $("#category-name").val();
+
+          // console.log(facility);
+          $.ajax({
+            method: "POST",
+            url: `${BASE_URL}/types`,
+            data: {
+              name,
+            },
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          })
+
+            .done((response) => {
+              $("#username").text(localStorage.getItem("username"));
+              $("#login-section").hide();
+              $("#home-section").show();
+              hidden();
+              $("#category-section").show();
+              fetchLodgings();
+              fetchCategories();
+              showToast("Add Success");
+            })
+            .fail((err) => {
+              console.log(err);
+            });
+        });
+
+        //Show Category
+        $("#nav-category").click((event) => {
+          event.preventDefault();
+          hidden();
+          $("#category-section").show();
+          fetchCategories();
+        });
+
+        //Form add lodgings
+        $("#new-product").click((event) => {
+          event.preventDefault();
+          $("#product-name").val("");
+          $("#product-category").val("");
+          $("#product-facility").val("");
+          $("#product-stock").val("");
+          $("#product-price").val("");
+          $("#product-image").val("");
+          $("#product-roomCapacity").val("");
+          $("#product-location").val("");
+          hidden();
+          $("#new-product-section").show();
+          fetchCategories();
+        });
+
+        //Form add Category
+        $("#new-category").click((event) => {
+          event.preventDefault();
+          hidden();
+          $("#new-category-section").show();
+        });
+      });
+
+      //Hidden
+      const hidden = () => {
+        $("#dashboard-section").hide();
+        $("#category-section").hide();
+        $("#new-category-section").hide();
+        $("#product-section").hide();
+        $("#category-section").hide();
+        $("#new-product-section").hide();
+      };
+
+      const formatPrice = (price) => {
+        return price.toLocaleString("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        });
+      };
+
+      //Show lodGings
+      const fetchLodgings = async () => {
+        try {
+          const lodgings = await $.ajax({
+            method: "GET",
+            url: `${BASE_URL}/lodgings`,
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          });
+          let html = "";
+          lodgings.forEach((el, index) => {
+            // console.log(el);
+            html += `<tr>
+                    <td class="text-center" scope="row">${index + 1}</td>
+                    <td class="fw-bold">${el.name}</td>
+                    <td>
+                      <img
+                        src="${el.imageUrl}"
+                        class="img-fluid"
+                      />
+                    </td>
+                    <td>${el.facility}</td>
+                    <td class="text-center">${el.roomCapacity}</td>
+                    <td class="fw-bold text-center">${formatPrice(
+                      el.price
+                    )}</td>
+                    <td>${el.User.email}</td>
+                    <td>
+                      <button onclick='deleteLodgings(${el.id})' class="ms-3"
+                        ><span
+                          class="icon material-symbols-outlined text-danger"
+                          >delete</span
+                        ></button
+                      >
+                    </td>
+                  </tr>`;
+          });
+          $("#table-product").html(html);
+          // $('#username').text(lodgings.email)
+          $("#total-product").text(lodgings.length);
+          // console.log(html);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      //showCategory
+      const fetchCategories = async () => {
+        try {
+          const category = await $.ajax({
+            method: "GET",
+            url: `${BASE_URL}/types`,
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          });
+          let html = "";
+          let product_category = "";
+          category.forEach((el, index) => {
+            html += `<tr>
+                    <td class="text-center" scope="row">${index + 1}</td>
+                    <td class="fw-bold">${el.name}</td>
+                    <td>
+                      <button onclick='deleteCategory(${el.id})' class="ms-3"
+                        ><span
+                          class="icon material-symbols-outlined text-danger"
+                          >delete</span
+                        ></button
+                      >
+                    </td>
+                  </tr>`;
+            product_category += `               
+                    <option selected disabled></option>
+                    <option value="${el.id}">${el.name}</option>
+               `;
+          });
+          $("#table-category").html(html);
+          $("#product-category").html(product_category);
+          $("#total-category").text(category.length);
+
+          // console.log(category.length);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      //Delete Lodging
+      const deleteLodgings = async (lodgingId) => {
+        // console.log(lodgingId);
+        try {
+          await $.ajax({
+            method: "DELETE",
+            url: `${BASE_URL}/lodgings/` + lodgingId,
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          });
+          fetchLodgings();
+          showToast("Delete Success");
+        } catch (err) {
+          console.log(err);
+          showToast(err.responseJSON.message);
+        }
+      };
+      const deleteCategory = async (categoryId) => {
+        try {
+          await $.ajax({
+            method: "DELETE",
+            url: `${BASE_URL}/types/` + categoryId,
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          });
+          fetchCategories();
+          showToast("Delete Success");
+        } catch (err) {
+          console.log(err);
+          showToast(err.responseJSON.message);
+        }
+      };
+
+      //Alert
+      const showToast = (message) => {
+        Toastify({
+          text: message,
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function () {}, // Callback after click
+        }).showToast();
+      };
+    </script>
+  </body>
+</html>
