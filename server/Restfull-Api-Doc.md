@@ -27,7 +27,7 @@ RESTful APIs allow you to perform CRUD (Create, Read, Update, and Delete) operat
     updatedAt: date,
     createdAt: date
     },
-    ...
+    "..."
 ]
 
 ```
@@ -98,7 +98,7 @@ RESTful APIs allow you to perform CRUD (Create, Read, Update, and Delete) operat
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -132,7 +132,7 @@ headers : {
             "updatedAt": "2023-10-18T15:06:07.562Z"
         }
     },
-    ...
+    "..."
 ]
 ```
 
@@ -143,7 +143,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -187,7 +187,7 @@ headers : {
 ```
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -231,7 +231,7 @@ headers : {
 ```
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -268,7 +268,7 @@ headers : {
 ```
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -299,7 +299,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -319,7 +319,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -334,7 +334,7 @@ headers : {
         "createdAt": "2023-10-02T09:27:24.258Z",
         "updatedAt": "2023-10-02T09:27:24.258Z"
     },
-    ...
+    "..."
 ]
 ```
 
@@ -351,7 +351,7 @@ headers : {
 ```
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -440,7 +440,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -482,7 +482,7 @@ To access the API, you need to authenticate using JSON Web Tokens (JWT). Follow 
   }
   ```
 
-2. **Include JWT Token**: Include the JWT token in the `headers` of your requests using the `access_token`.
+2. **Include JWT Token**: Include the JWT token in the `"headers"` of your requests using the `access_token`.
 
    ```json
    {
@@ -570,7 +570,7 @@ In case of an error, the API responds with a JSON object containing the followin
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -615,7 +615,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -649,7 +649,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
@@ -680,7 +680,7 @@ headers : {
         "updatedAt": "2023-10-18T15:06:07.578Z"
       }
     },
-    ...,
+    "...",
   ]
 }
 ```
@@ -692,7 +692,7 @@ headers : {
 - **Request :**
 
 ```json
-headers : {
+"headers" : {
     "access_token": "string"
 }
 ```
