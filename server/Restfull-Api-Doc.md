@@ -602,7 +602,7 @@ In case of an error, the API responds with a JSON object containing the followin
           "updatedAt": "2023-10-18T15:06:07.572Z"
         }
       },
-      ...,
+      "...",
     ]
   }
 }
